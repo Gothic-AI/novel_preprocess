@@ -54,15 +54,15 @@ input_file: "data/raw/pg345.txt"  # Path to the raw text file
 output_file: "data/processed/dracula_cleaned.txt"  # Path to save the cleaned text file
 ```
 
-# Preprocessing settings
-cleaning:
-  remove_metadata: false  # Set to true to remove Project Gutenberg metadata
-  split_by_chapters: true  # Set to true to split the text by chapters
-  remove_special_characters: true  # Set to true to remove special characters
-  lower_case: true  # Set to true to convert all text to lowercase
-  split_paragraphs: true  # Set to true to split the text into paragraphs
+## Preprocessing settings
+- cleaning:
+  - remove_metadata: false  # Set to true to remove Project Gutenberg metadata
+  - split_by_chapters: true  # Set to true to split the text by chapters
+  - remove_special_characters: true  # Set to true to remove special characters
+  - lower_case: true  # Set to true to convert all text to lowercase
+  - split_paragraphs: true  # Set to true to split the text into paragraphs
 
-# Tokenization settings
-tokenization:
-  max_length: 512  # Max word count per chunk
-  batch_size: 8    # Batch size for tokenization
+## Tokenization settings
+- tokenization:
+  - max_length: 512  # Max word count per chunk
+  - batch_size: 8    # Batch size for tokenization
