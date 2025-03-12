@@ -64,4 +64,4 @@ def chunk_text(text, max_length):
             chunks.append(" ".join(current_chunk))
     
     # Join all chunks with exactly one empty line between paragraphs
-    return "\n\n".join(chunks).strip()
+    return "\n".join(chunks).strip()
