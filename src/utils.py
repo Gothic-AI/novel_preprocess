@@ -65,3 +65,15 @@ def chunk_text(text, max_length):
     
     # Join all chunks with exactly one empty line between paragraphs
     return "\n".join(chunks).strip()
+
+
+import re
+
+def clean_line(line):
+    # Remove special characters (keep letters, numbers, spaces)
+    cleaned = re.sub(r"[^a-zA-Z0-9\s]", "", line)
+    # Replace multiple spaces with a single space
+    cleaned = re.sub(r"\s+", " ", cleaned)
+    # Strip leading/trailing spaces
+    return cleaned.strip()
+

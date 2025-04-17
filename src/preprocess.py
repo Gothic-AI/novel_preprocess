@@ -1,7 +1,9 @@
 import re
 import os
 from pathlib import Path
-from utils import load_config, clean_metadata, split_by_chapters, remove_special_characters, split_paragraphs, chunk_text
+from utils import load_config, clean_metadata, split_by_chapters, \
+    remove_special_characters, split_paragraphs, chunk_text, \
+    clean_line
 
 
 # Preprocess the text based on configuration
@@ -31,8 +33,11 @@ def preprocess_text(input_file, output_file, config):
     max_length = config['tokenization'].get('max_length', 512)
     text = chunk_text(text, max_length)
 
+    text = "\n".join([clean_line(line) for line in text.splitlines()])
+
     # Save the cleaned text
     with open(output_file, 'w', encoding='utf-8') as file:
+        # file.write("\n".join(text))
         file.write(text)
 
     print(f"Preprocessing complete. Cleaned text saved to {output_file}")
